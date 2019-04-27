@@ -98,25 +98,55 @@ shapiro.test(as.numeric(data$irradiat))
 t.test(ir)
 
 #How do we test non normal data?
-#This tests reocurrence against irradiat
-wilcox.test(as.numeric(data$reoccurance) ~ as.numeric(data$irradiat), data=data)
 #This tests reoccurence against breast
-wilcox.test(as.numeric(data$reoccurance) ~ as.numeric(data$breast), data=data)
-
-#WHICH T TEST DO I USE?
 kruskal.test(as.numeric(data$reoccurance) ~ as.numeric(data$breast), data=data)
+#This tests reocurrence against irradiat
 kruskal.test(as.numeric(data$reoccurance) ~ as.numeric(data$irradiat), data=data)
 
 #SO ON
 
-lr = glm(reoccurance ~., data = data, family = binomial(logit))
-summary(lr)
+pm = glm(reoccurance ~., data = data, family = binomial(logit))
+summary(pm)
 
-#FIRST RESEARCH QUESTION: IS REOCCURENCE ASSOCIATED WITH ANYTHING
-#FIRST RESEARCH QUESTION: IS REOCCURENCE ASSOCIATED WITH ANYTHING
-
-SECOND RESEARCH QUESTION: Are any variables associated with each other? Esp degree of malignancy
+#SECOND RESEARCH QUESTION: Are any variables associated with each other? Esp degree of malignancy
+#
+tblA1 = table(data$tmsize, data$breast)
+chisq.test(tblA1)
 
 #
+tblA2 = table(data$maldeg, data$tmsize)
+chisq.test(tblA2)
+
+#
+tblA3 = table(data$maldeg, data$age)
+chisq.test(tblA3)
+
+#
+tblA4 = table(data$maldeg, data$meno)
+chisq.test(tblA4)
+
+#
+tblA5 = table(data$maldeg, data$invnodes)
+chisq.test(tblA5)
+
+#
+tblA6 = table(data$maldeg, data$nodecaps)
+tblA6.1 = tblA6[,-1] 
+chisq.test(tblA6.1)
+
+#
+tblA7 = table(data$maldeg, data$breast)
+chisq.test(tblA7)
+
+#
+tblA8 = table(data$maldeg, data$quad)
+tblA8.1 = tblA8[,-1] 
+chisq.test(tblA8.1)
+
+#
+tblA9 = table(data$maldeg, data$irradiat)
+chisq.test(tblA9)
+
+
 
 
