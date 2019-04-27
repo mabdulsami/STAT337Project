@@ -147,6 +147,9 @@ chisq.test(tblA8.1)
 tblA9 = table(data$maldeg, data$irradiat)
 chisq.test(tblA9)
 
-
+#Two sample t tests
+t.test(mg,cat)
+t.test(mg,lr)
+t.test(mg,mn)
 
 
