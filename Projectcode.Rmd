@@ -112,8 +112,11 @@ kruskal.test(as.numeric(data$reoccurance) ~ as.numeric(data$irradiat), data=data
 lr = glm(reoccurance ~., data = data, family = binomial(logit))
 summary(lr)
 
-#SECOND RESEARCH QUESTION: Are any variables associated with each other? Esp degree of malignancy
+#FIRST RESEARCH QUESTION: IS REOCCURENCE ASSOCIATED WITH ANYTHING
+#FIRST RESEARCH QUESTION: IS REOCCURENCE ASSOCIATED WITH ANYTHING
 
+SECOND RESEARCH QUESTION: Are any variables associated with each other? Esp degree of malignancy
 
+#
 
 
